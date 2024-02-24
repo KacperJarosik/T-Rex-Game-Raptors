@@ -267,7 +267,7 @@ def game():
                     return False
 
         SCREEN.fill((16, 16, 16))
-        SCREEN.blit(LOGO, (10, SCREEN_HEIGHT - 125))
+        SCREEN.blit(LOGO, (10, SCREEN_HEIGHT - 200))
         userInput = pygame.key.get_pressed()
         track.draw(SCREEN)
         for cloud in clouds:
@@ -313,7 +313,7 @@ def menu(is_first_game):
     global points
     if is_first_game:
         SCREEN.fill(BACKGROUND_COLOUR)
-        SCREEN.blit(LOGO, (10, SCREEN_HEIGHT - 125))
+        SCREEN.blit(LOGO, (10, SCREEN_HEIGHT - 200))
         font = pygame.font.Font('freesansbold.ttf', 30)
         text = font.render("Press the space bar to start the game", True, FIRST_PLANE_COLOUR)
         text_rect = text.get_rect()
