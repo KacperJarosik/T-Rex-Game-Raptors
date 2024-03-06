@@ -25,3 +25,4 @@ Additionally, the game generates obstacles: cacti and birds, and decorations: cl
 - Press down arrow key - crouch
 - Press ESC - exit game
 - To modify bestscore manually you must write new value in file "bestscore.txt".
+![image](https://github.com/Helltaker1/T-Rex-Game-Raptors/assets/111696215/007ca7a3-dbb4-4e18-b669-002a8cdd1bbe)
