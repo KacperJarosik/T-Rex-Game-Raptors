@@ -2,7 +2,7 @@
 
 ## Description
 
-T-Rex-Game-Raptors is the game inspired by popular game Chrome Dino.
+T-Rex-Game-Raptors is the game inspired by popular game Chrome Dino. :)
 
 Game goal:
 
