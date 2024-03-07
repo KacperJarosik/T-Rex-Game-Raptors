@@ -1,6 +1,6 @@
 # T-Rex-Game-Raptors - beta version
 
-## Description😋
+## Description
 
 T-Rex-Game-Raptors is the game inspired by popular game Chrome Dino.
 
