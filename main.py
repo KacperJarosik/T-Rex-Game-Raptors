@@ -1,18 +1,22 @@
 import pygame
 import os
 import random
+from pygame.locals import *
+
 # Initialize Pygame
 pygame.init()
 # Constants
 FIRST_PLANE_COLOUR = (255, 161, 28)
 BACKGROUND_COLOUR = (16, 16, 16)
-SCREEN_HEIGHT = 1080
+SCREEN_HEIGHT = 800
 SCREEN_WIDTH = 1920
-SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), HWSURFACE | DOUBLEBUF | RESIZABLE | pygame.FULLSCREEN)
+
 
 # Load images
 def load_images(folder, prefix, count, extension):
     return [pygame.image.load(os.path.join(folder, f"{prefix}{i}.{extension}")) for i in range(1, count + 1)]
+
 
 RUNNING = load_images("Assets/Dino", "DinoRun", 2, "png")
 DUCKING = load_images("Assets/Dino", "DinoDuck", 2, "png")
@@ -33,11 +37,12 @@ game_speed = 20
 points = 0
 obstacles = []
 
+
 # Classes
 class Dinosaur:
     X_POSITION = 80
-    Y_POSITION = SCREEN_HEIGHT // 2
-    Y_DUCK_POSITION = SCREEN_HEIGHT // 2 + 30
+    Y_POSITION = SCREEN_HEIGHT // 1.5
+    Y_DUCK_POSITION = SCREEN_HEIGHT // 1.5 + 30
     JUMP_VEL = 7.5
 
     def __init__(self):
@@ -70,7 +75,8 @@ class Dinosaur:
         if self.step_index >= 10:
             self.step_index = 0
 
-        if (userInput[pygame.K_UP] or userInput[pygame.K_SPACE] or userInput[pygame.K_RETURN]) and self.dino_rect.y==self.Y_POSITION and not self.dino_jump:
+        if (userInput[pygame.K_UP] or userInput[pygame.K_SPACE] or userInput[
+            pygame.K_RETURN]) and self.dino_rect.y == self.Y_POSITION and not self.dino_jump:
             self.dino_duck = False
             self.dino_run = False
             self.dino_jump = True
@@ -117,7 +123,7 @@ class Dinosaur:
 class Cloud:
     def __init__(self):
         self.x = SCREEN_WIDTH + random.randint(0, 2000)
-        self.y = random.randint(50, SCREEN_HEIGHT // 2 - 60)
+        self.y = random.randint(50, int(SCREEN_HEIGHT // 1.5) - 60)
         self.image = CLOUD
         self.width = self.image.get_width()
 
@@ -125,15 +131,16 @@ class Cloud:
         self.x -= game_speed / 5
         if self.x < -self.width:
             self.x = SCREEN_WIDTH + random.randint(0, 1500)
-            self.y = random.randint(50, SCREEN_HEIGHT // 2 - 60)
+            self.y = random.randint(50, int(SCREEN_HEIGHT // 1.5) - 60)
 
     def draw(self, SCREEN):
         SCREEN.blit(self.image, (self.x, self.y))
 
+
 class Drone:
     def __init__(self):
         self.x = SCREEN_WIDTH + random.randint(0, 2000)
-        self.y = random.randint(50, SCREEN_HEIGHT // 2 - 60)
+        self.y = random.randint(50, int(SCREEN_HEIGHT // 1.5) - 60)
         self.image = DRONE
         self.width = self.image.get_width()
 
@@ -141,10 +148,11 @@ class Drone:
         self.x -= game_speed / 5
         if self.x < -self.width:
             self.x = SCREEN_WIDTH + random.randint(0, 1500)
-            self.y = random.randint(SCREEN_HEIGHT//5, SCREEN_HEIGHT // 2 - 60)
+            self.y = random.randint(SCREEN_HEIGHT // 5, int(SCREEN_HEIGHT // 1.5) - 60)
 
     def draw(self, SCREEN):
         SCREEN.blit(self.image, (self.x, self.y))
+
 
 class Obstacle:
     def __init__(self, image, type):
@@ -165,19 +173,19 @@ class Obstacle:
 class SmallCactus(Obstacle):
     def __init__(self, image):
         super().__init__(image, random.randint(0, 2))
-        self.rect.y = SCREEN_HEIGHT // 2 + 25
+        self.rect.y = SCREEN_HEIGHT // 1.5 + 25
 
 
 class LargeCactus(Obstacle):
     def __init__(self, image):
         super().__init__(image, random.randint(0, 2))
-        self.rect.y = SCREEN_HEIGHT // 2
+        self.rect.y = SCREEN_HEIGHT // 1.5
 
 
 class Bird(Obstacle):
     def __init__(self, image):
         super().__init__(image, 0)
-        self.rect.y = SCREEN_HEIGHT // 2 - 60
+        self.rect.y = SCREEN_HEIGHT // 1.5 - 60
         self.index = 0
 
     def draw(self, SCREEN):
@@ -190,7 +198,7 @@ class Bird(Obstacle):
 class Track:
     def __init__(self):
         self.x_pos = 0
-        self.y_pos = SCREEN_HEIGHT // 2 + 80
+        self.y_pos = SCREEN_HEIGHT // 1.5 + 80
 
     def draw(self, SCREEN):
         image_width = TRACK.get_width()
@@ -200,6 +208,7 @@ class Track:
             SCREEN.blit(TRACK, (image_width + self.x_pos, self.y_pos))
             self.x_pos = 0
         self.x_pos -= game_speed
+
 
 def bestscore(is_first_game):
     global best_score, points
@@ -213,6 +222,8 @@ def bestscore(is_first_game):
             with open("best_score.txt", "w") as file:
                 file.write(str(best_score) + '\n')
                 print("Updated Best Score:", best_score)
+
+
 def score():
     global points, game_speed, best_score
     points += 1
@@ -221,7 +232,7 @@ def score():
     text = font.render("Best Score: " + str(best_score) + " / Score: " + str(int(points)), True,
                        FIRST_PLANE_COLOUR)
     textRect = text.get_rect()
-    textRect.center = (1000, 40)
+    textRect.center = (SCREEN.get_width() / 2, 40)
     SCREEN.blit(text, textRect)
     if points >= best_score:
         best_score = points
@@ -254,7 +265,6 @@ def game():
     game_speed = 20
     points = 0
     obstacles = []
-    jump_cooldown = 0
 
     while True:
         for event in pygame.event.get():
@@ -267,7 +277,9 @@ def game():
                     return False
 
         SCREEN.fill((16, 16, 16))
-        SCREEN.blit(LOGO, (10, SCREEN_HEIGHT - 200))
+        SCREEN.blit(LOGO, (
+            int(SCREEN.get_width() * 0.005),
+            SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - LOGO.get_height()))
         userInput = pygame.key.get_pressed()
         track.draw(SCREEN)
         for cloud in clouds:
@@ -311,24 +323,28 @@ def game():
 
 def menu(is_first_game):
     global points
-    if is_first_game:
-        SCREEN.fill(BACKGROUND_COLOUR)
-        SCREEN.blit(LOGO, (10, SCREEN_HEIGHT - 200))
-        font = pygame.font.Font('freesansbold.ttf', 30)
-        text = font.render("Press the space bar to start the game", True, FIRST_PLANE_COLOUR)
-        text_rect = text.get_rect()
-        text_rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
-        SCREEN.blit(text, text_rect)
-        SCREEN.blit(RUNNING[0], (SCREEN_WIDTH // 2 - 20, SCREEN_HEIGHT // 2 - 140))
-        pygame.display.update()
+
     while True:
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+            if is_first_game:
+                SCREEN.fill(BACKGROUND_COLOUR)
+                SCREEN.blit(LOGO, (int(SCREEN.get_width() * 0.005),
+                                   SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - LOGO.get_height()))
+                font = pygame.font.Font('freesansbold.ttf', 30)
+                text = font.render("Press the space bar to start the game", True, FIRST_PLANE_COLOUR)
+                text_rect = text.get_rect()
+                text_rect.center = (SCREEN.get_width() // 2, SCREEN.get_height() // 2)
+                SCREEN.blit(text, text_rect)
+                SCREEN.blit(RUNNING[0], (SCREEN.get_width() // 2 - 20, SCREEN.get_height() // 2 - 140))
+                pygame.display.update()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE or event.key == pygame.K_UP or event.key == pygame.K_RETURN:
                     if game() == False:
                         return
+                    is_first_game = False
                     break
                 if event.key == pygame.K_ESCAPE:
                     return
