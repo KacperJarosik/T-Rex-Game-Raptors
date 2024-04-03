@@ -12,6 +12,7 @@ SCREEN_HEIGHT = 800
 SCREEN_WIDTH = 1920
 SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), HWSURFACE | DOUBLEBUF | RESIZABLE | pygame.FULLSCREEN)
 
+
 # Load images
 def load_images(folder, prefix, count, extension):
     return [pygame.image.load(os.path.join(folder, f"{prefix}{i}.{extension}")) for i in range(1, count + 1)]
@@ -277,7 +278,8 @@ def game():
 
         SCREEN.fill((16, 16, 16))
         SCREEN.blit(LOGO, (
-        int(SCREEN.get_width() * 0.005), SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - LOGO.get_height()))
+            int(SCREEN.get_width() * 0.005),
+            SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - LOGO.get_height()))
         userInput = pygame.key.get_pressed()
         track.draw(SCREEN)
         for cloud in clouds:
@@ -342,11 +344,10 @@ def menu(is_first_game):
                 if event.key == pygame.K_SPACE or event.key == pygame.K_UP or event.key == pygame.K_RETURN:
                     if game() == False:
                         return
-                    is_first_game=False
+                    is_first_game = False
                     break
                 if event.key == pygame.K_ESCAPE:
                     return
-
 
 
 if __name__ == "__main__":
