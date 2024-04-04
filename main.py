@@ -31,6 +31,8 @@ CLOUD = pygame.image.load(os.path.join("Assets/Other", "Cloud.png"))
 TRACK = pygame.image.load(os.path.join("Assets/Other", "Track.png"))
 DRONE = pygame.image.load(os.path.join("Assets/Other", "Drone.png"))
 LOGO = pygame.image.load(os.path.join("Assets/Other", "LogoRaptors.png"))
+QR = pygame.image.load(os.path.join("Assets/Other", "QR.png"))
+QR_BIG = pygame.image.load(os.path.join("Assets/Other", "QR_Big.png"))
 
 # Game variables
 game_speed = 20
@@ -280,6 +282,15 @@ def game():
         SCREEN.blit(LOGO, (
             int(SCREEN.get_width() * 0.005),
             SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - LOGO.get_height()))
+        SCREEN.blit(QR, (
+            int(SCREEN.get_width() - SCREEN.get_width() * 0.005 - QR.get_width()),
+            SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - QR.get_height()))
+        font = pygame.font.Font('freesansbold.ttf', 20)
+        text = font.render("More about us:", True,
+                           FIRST_PLANE_COLOUR)
+        SCREEN.blit(text,(
+            int(SCREEN.get_width() - SCREEN.get_width() * 0.005 - QR.get_width()),
+            SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - QR.get_height()-25))
         userInput = pygame.key.get_pressed()
         track.draw(SCREEN)
         for cloud in clouds:
@@ -333,6 +344,15 @@ def menu(is_first_game):
                 SCREEN.fill(BACKGROUND_COLOUR)
                 SCREEN.blit(LOGO, (int(SCREEN.get_width() * 0.005),
                                    SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - LOGO.get_height()))
+                SCREEN.blit(QR_BIG, (
+                    int(SCREEN.get_width() - SCREEN.get_width() * 0.005 - QR_BIG.get_width()),
+                    SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - QR_BIG.get_height()))
+                font = pygame.font.Font('freesansbold.ttf', 30)
+                text = font.render("More about us:", True,
+                                   FIRST_PLANE_COLOUR)
+                SCREEN.blit(text, (
+                    int(SCREEN.get_width() - SCREEN.get_width() * 0.005 - QR_BIG.get_width()),
+                    SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - QR_BIG.get_height() - 35))
                 font = pygame.font.Font('freesansbold.ttf', 30)
                 text = font.render("Press the space bar to start the game", True, FIRST_PLANE_COLOUR)
                 text_rect = text.get_rect()
