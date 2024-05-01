@@ -240,7 +240,7 @@ def score():
         best_score = points
 
 
-def generate_obstacle(is_):
+def generate_obstacle():
     global obstacles
     new_obstacle = None
 
@@ -288,9 +288,9 @@ def game():
         font = pygame.font.Font('freesansbold.ttf', 20)
         text = font.render("More about us:", True,
                            FIRST_PLANE_COLOUR)
-        SCREEN.blit(text,(
+        SCREEN.blit(text, (
             int(SCREEN.get_width() - SCREEN.get_width() * 0.005 - QR.get_width()),
-            SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - QR.get_height()-25))
+            SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - QR.get_height() - 25))
         userInput = pygame.key.get_pressed()
         track.draw(SCREEN)
         for cloud in clouds:
@@ -317,8 +317,27 @@ def game():
 
                 dinosaur.update(userInput)
                 dinosaur.draw(SCREEN)
-                SCREEN.blit(GAME_OVER, (SCREEN_WIDTH // 2 - 190, SCREEN_HEIGHT // 2 - 70))
-                SCREEN.blit(RESET, (SCREEN_WIDTH // 2 - 34, SCREEN_HEIGHT // 2))
+
+                Rect = GAME_OVER.get_rect()
+                Rect.center = (SCREEN.get_width() // 2, SCREEN.get_height() // 2-GAME_OVER.get_height())
+                SCREEN.blit(GAME_OVER, Rect)
+                Rect = RESET.get_rect()
+                Rect.center = (SCREEN.get_width() // 2, SCREEN.get_height() // 2+RESET.get_height())
+                SCREEN.blit(RESET, Rect)
+
+                font = pygame.font.Font('freesansbold.ttf', 20)
+                text1 = font.render("Press M - show game menu", True,
+                                   FIRST_PLANE_COLOUR)
+                textRect1 = text1.get_rect()
+                textRect1.center = (SCREEN.get_width() / 2, 0.75*SCREEN.get_height()-40)
+                SCREEN.blit(text1, textRect1)
+
+                text2 = font.render("Press Space - start new game", True,
+                                   FIRST_PLANE_COLOUR)
+                textRect2 = text2.get_rect()
+                textRect2.center = (SCREEN.get_width() / 2, 0.75*SCREEN.get_height())
+                SCREEN.blit(text2, textRect2)
+
                 score()
                 pygame.display.update()
                 bestscore(False)
@@ -360,6 +379,27 @@ def menu(is_first_game):
                 SCREEN.blit(text, text_rect)
                 SCREEN.blit(RUNNING[0], (SCREEN.get_width() // 2 - 20, SCREEN.get_height() // 2 - 140))
                 pygame.display.update()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_m:
+                    SCREEN.fill(BACKGROUND_COLOUR)
+                    SCREEN.blit(LOGO, (int(SCREEN.get_width() * 0.005),
+                                       SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - LOGO.get_height()))
+                    SCREEN.blit(QR_BIG, (
+                        int(SCREEN.get_width() - SCREEN.get_width() * 0.005 - QR_BIG.get_width()),
+                        SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - QR_BIG.get_height()))
+                    font = pygame.font.Font('freesansbold.ttf', 30)
+                    text = font.render("More about us:", True,
+                                       FIRST_PLANE_COLOUR)
+                    SCREEN.blit(text, (
+                        int(SCREEN.get_width() - SCREEN.get_width() * 0.005 - QR_BIG.get_width()),
+                        SCREEN.get_height() - int(SCREEN.get_height() * 0.005) - QR_BIG.get_height() - 35))
+                    font = pygame.font.Font('freesansbold.ttf', 30)
+                    text = font.render("Press the space bar to start the game", True, FIRST_PLANE_COLOUR)
+                    text_rect = text.get_rect()
+                    text_rect.center = (SCREEN.get_width() // 2, SCREEN.get_height() // 2)
+                    SCREEN.blit(text, text_rect)
+                    SCREEN.blit(RUNNING[0], (SCREEN.get_width() // 2 - 20, SCREEN.get_height() // 2 - 140))
+                    pygame.display.update()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE or event.key == pygame.K_UP or event.key == pygame.K_RETURN:
                     if game() == False:
