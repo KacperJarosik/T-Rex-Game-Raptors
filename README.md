@@ -18,11 +18,13 @@ Additionally, the game generates obstacles: cacti and birds, and decorations: cl
 - The game is only for Windows 64-bit system.
 - All files must stay in default folder.
 - SCREEN SETINGS: The game is only for 1920 x 1080 resolution (100% zoom).
+  [Code version has autoscale in the future I will create new exe version ]
 
 ### Game instruction
 - To start game you must open file "RAPTORS GAME" in folder [Play Game](<Play Game>). The file type is aplication.
 - Press space, enter, up arrow key - jump
-- Press down arrow key - crouch
+- Press down arrow key - crouch (it's not necessary to use)
+- Press M to go back to menu
 - Press ESC - exit game
 - To modify bestscore manually you must write new value in file "bestscore.txt".
 
