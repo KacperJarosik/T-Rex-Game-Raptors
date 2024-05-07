@@ -32,7 +32,7 @@ Additionally, the game features generated obstacles like cacti and birds, along 
 - The code version is compatible with all systems where the pygame library works.
 - All files must remain in their default folder.
 
-### Game instruction
+## Game instruction
 - Press spacebar, enter, or the up arrow key to jump.
 - Press the down arrow key to crouch (optional).
 - Press 'M' to return to the menu.
