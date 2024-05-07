@@ -20,7 +20,7 @@ Additionally, the game generates obstacles: cacti and birds, and decorations: cl
 - SCREEN SETINGS: The game is only for 1920 x 1080 resolution (100% zoom).
 
 ### Game instruction
-- To start game you must open file "RAPTORS GAME" in folder [Play Game](<Play Game>). The file type is aplication.
+- To start game you must open file "RAPTORS GAME" in folder [Play Game](<PlayGame>). The file type is aplication.
 - Press space, enter, up arrow key - jump
 - Press down arrow key - crouch
 - Press ESC - exit game
