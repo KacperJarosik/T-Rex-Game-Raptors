@@ -1,33 +1,43 @@
-# T-Rex-Game-Raptors - beta version
+# T-Rex-Game-Raptors
 
 ## Description
 
-T-Rex-Game-Raptors is the game inspired by popular game Chrome Dino.
+T-Rex-Game-Raptors is a game inspired by the popular Chrome Dino game.
 
 Game goal:
 
-The goal of your game is to achieve the highest possible score by running as far as possible while avoiding obstacles (cactuses and birds).
+The objective of the game is to achieve the highest possible score by running as far as you can while dodging obstacles such as cacti and birds.
 
-The game displays the current and highest score, which it updates continuously when exceeded.
+The game keeps track of your current score and highest score, updating it continuously as you progress.
 
-Additionally, the game generates obstacles: cacti and birds, and decorations: clouds, a drone and a pathway.
+Additionally, the game features generated obstacles like cacti and birds, along with decorations such as clouds, a drones, and a pathway.
 
-## Instruction
+## Download Instructions
 
-### Hardware requirements
-- The game is only for Windows 64-bit system.
-- All files must stay in default folder.
-- SCREEN SETINGS: The game is only for 1920 x 1080 resolution (100% zoom).
+### Application Version
+1. Click on the green button labeled "<> Code" on GitHub and select "Download ZIP".
+2. Unzip the downloaded file.
+3. Navigate to the PlayGame folder and run "RaptorsGame.exe".
 
-( Code version has autoscale in the future I will create new exe version )
+#### Hardware requirements
+- The application version is compatible with Windows 64-bit systems only.
+- All files must remain in their default folder.
+
+### Code Version
+1. Clone the repository to your local machine.
+2. Import the necessary libraries.
+3. Run the project.
+
+#### Hardware requirements
+- The code version is compatible with all systems where the pygame library works.
+- All files must remain in their default folder.
 
 ### Game instruction
-- To start game you must open file "RAPTORS GAME" in folder [Play Game](<PlayGame>). The file type is aplication.
-- Press space, enter, up arrow key - jump
-- Press down arrow key - crouch (it's not necessary to use)
-- Press M to go back to menu
-- Press ESC - exit game
-- To modify bestscore manually you must write new value in file "bestscore.txt".
+- Press spacebar, enter, or the up arrow key to jump.
+- Press the down arrow key to crouch (optional).
+- Press 'M' to return to the menu.
+- Press 'ESC' to exit the game.
+- To manually modify the best score, update the value in the "bestscore.txt" file.
 
 ## Menu
 
