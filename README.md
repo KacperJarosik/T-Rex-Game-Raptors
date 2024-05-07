@@ -41,16 +41,19 @@ Additionally, the game features generated obstacles like cacti and birds, along 
 
 ## Menu view
 
-![image](https://github.com/Helltaker1/T-Rex-Game-Raptors/assets/111696215/007ca7a3-dbb4-4e18-b669-002a8cdd1bbe)
+![image](https://github.com/KacperJarosik/T-Rex-Game-Raptors/assets/111696215/7330d805-59fe-4dd6-8066-43897a71a362)
+
 
 ## Game view
 
-![image](https://github.com/Helltaker1/T-Rex-Game-Raptors/assets/111696215/d1dc5607-1678-4e28-88bf-b39143765f17)
+![image](https://github.com/KacperJarosik/T-Rex-Game-Raptors/assets/111696215/227cf12a-51c0-4d9b-8467-9f733a455cef)
 
-![image](https://github.com/Helltaker1/T-Rex-Game-Raptors/assets/111696215/5cf99c50-1f2e-4886-823d-952d97ecbb45)
+![image](https://github.com/KacperJarosik/T-Rex-Game-Raptors/assets/111696215/8d62fec8-799c-45b4-adbb-380ed0277e1a)
+
 
 ## Dead Menu view
 
-![image](https://github.com/Helltaker1/T-Rex-Game-Raptors/assets/111696215/697157cb-e20b-48d9-a597-c4e5c1d3ff18)
+![image](https://github.com/KacperJarosik/T-Rex-Game-Raptors/assets/111696215/62cecfc1-4d40-4de3-92ae-2849ac5fb048)
+
 
 
