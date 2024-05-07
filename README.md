@@ -39,17 +39,17 @@ Additionally, the game features generated obstacles like cacti and birds, along 
 - Press 'ESC' to exit the game.
 - To manually modify the best score, update the value in the "bestscore.txt" file.
 
-## Menu
+## Menu view
 
 ![image](https://github.com/Helltaker1/T-Rex-Game-Raptors/assets/111696215/007ca7a3-dbb4-4e18-b669-002a8cdd1bbe)
 
-## Game
+## Game view
 
 ![image](https://github.com/Helltaker1/T-Rex-Game-Raptors/assets/111696215/d1dc5607-1678-4e28-88bf-b39143765f17)
 
 ![image](https://github.com/Helltaker1/T-Rex-Game-Raptors/assets/111696215/5cf99c50-1f2e-4886-823d-952d97ecbb45)
 
-## Dead Menu
+## Dead Menu view
 
 ![image](https://github.com/Helltaker1/T-Rex-Game-Raptors/assets/111696215/697157cb-e20b-48d9-a597-c4e5c1d3ff18)
 
